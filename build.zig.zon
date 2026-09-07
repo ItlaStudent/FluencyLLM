@@ -1,0 +1,16 @@
+.{
+    .name = .zig_super_agent,
+    .version = "0.0.0",
+    .minimum_zig_version = "0.16.0",
+    .fingerprint = 0xd0eacacbfc2dbf34,
+    .dependencies = .{},
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+        "tools",
+        "configs",
+        "eval",
+        "docs",
+    },
+}

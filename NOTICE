@@ -1,0 +1,48 @@
+Fluency
+Copyright 2026 Jesús Rafael Calderón Mejía (ItlaStudent)
+
+This product is licensed under the Apache License, Version 2.0 (the
+"License"); you may not use this product except in compliance with the
+License. You may obtain a copy of the License at:
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+================================================================================
+Third-party content and attribution
+================================================================================
+
+Fluency learns by *distillation* from external teacher models. No third-party
+binary, kernel, runtime, or source code is embedded in Fluency — only learned
+weights derived through Zig training code from sequences produced by
+permissively-licensed teachers (Constitution, Article I.5 / III).
+
+The following teacher models have been used as oracles during distillation
+runs published with this repository. Their licenses permit derivative training
+and the resulting Fluency weights are an original work of this project.
+
+1. SmolLM2-360M-Instruct
+   - Source: HuggingFaceTB / SmolLM2-360M-Instruct-GGUF (Q8_0 quantization)
+   - Architecture: llama (32 layers, embd=960, vocab=49152)
+   - License: Apache License 2.0
+   - Used as: seq-KD teacher for the Fluency-139M overnight/smoke runs.
+
+2. TinyLlama-1.1B-Chat
+   - Source: TheBloke / TinyLlama-1.1B-Chat-v1.0-GGUF (Q4_K_M quantization)
+   - Architecture: llama (22 layers, embd=2048, vocab=32000)
+   - License: Apache License 2.0
+   - Used as: early pilot teacher (now superseded by SmolLM2 to fit memory
+     budget on developer hardware).
+
+================================================================================
+Notes
+================================================================================
+
+* The GGUF files of the teachers are NOT redistributed in this repository.
+  Re-fetch them from their original sources (links above).
+* Trained Fluency checkpoints (`models/fluency-*.ckpt`) and intermediate
+  datasets (`data/seqkd-*.bin`) are produced by this project's code and are
+  licensed under the same Apache 2.0 as the source.
+* Per Constitution Article III.3, every teacher used is logged in
+  `docs/PROFESORES.md` with license and date.
+
+This NOTICE file is informational only and does not modify the License.

@@ -1,0 +1,9 @@
+# CODEOWNERS - Fluency
+# Revisión humana obligatoria para zonas críticas.
+
+CONSTITUCION.md       @author
+build.zig             @author
+build.zig.zon         @author
+tools/gate_*          @author
+src/platform/         @author
+AGENTS.md             @author

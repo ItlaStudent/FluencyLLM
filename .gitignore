@@ -1,0 +1,38 @@
+# --- Toolchain Zig vendorizado (NO versionar: ~260 MB, trae miles de .h/.c de libc) ---
+/zig-0.16.0/
+zig-*.zip
+*.zip
+
+# --- Artefactos de build de Zig ---
+/.zig-cache/
+/zig-cache/
+/zig-out/
+
+# --- Binarios y símbolos ---
+*.exe
+*.pdb
+*.obj
+*.lib
+*.dll
+*.so
+*.dylib
+*.a
+
+# --- Modelos y checkpoints (pesos no se versionan) ---
+*.gguf
+*.safetensors
+*.bin
+/data/*.bin
+/checkpoints/
+*.ckpt
+
+# --- Artefactos SPIR-V regenerables (zig build spv) ---
+*.spv
+
+# --- Dependencias de terceros ---
+node_modules/
+
+# --- Sistema operativo / editor ---
+Thumbs.db
+.DS_Store
+*.swp

@@ -1,0 +1,7 @@
+.{
+    .infer_binary_bytes_max = 5_000_000,
+    .agent_binary_bytes_max = 8_000_000,
+    .rss_peak_mb_max = 64,
+    .latency_ms_per_token_max = 50,
+    .wasm_bytes_max = 3_000_000,
+}
