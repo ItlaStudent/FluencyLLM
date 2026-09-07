@@ -169,9 +169,28 @@ welcome and encouraged.
 3. Ensure `zig build gate && zig build test` pass.
 4. Open a PR with a clear description of what and why.
 
-The Constitution is binding on all contributors — human and AI alike. If your
+The Constitution is binding on all contributors. If your
 change requires modifying `CONSTITUCION.md`, `build.zig*`, or `tools/gate_*.zig`,
 follow the amendment procedure in [Article X](CONSTITUCION.md).
+
+### Help train the model
+
+The engine is functional but the model is **undertrained**. This is the single
+biggest gap between Fluency and a useful product. You can help:
+
+- **Have a GPU or cloud compute?** Run a distillation from a permissively-licensed
+  teacher (Qwen3.8-27B, SmolLM2, TinyLlama — all Apache 2.0) into Fluency's
+  subquadratic architecture. See the [distillation guide](docs/04-aprendizaje-destilacion.md)
+  and `fluency distill --help`.
+- **Have prompt datasets?** Contribute to `data/` — more diverse prompts produce
+  better seq-KD datasets.
+- **Have eval suites?** Add benchmarks to `eval/` so we can measure progress.
+- **Trained a checkpoint?** Share it via HuggingFace or a release and open an
+  issue with the training config (teacher, steps, prompts, hyperparams). We'll
+  evaluate and feature the best ones.
+
+Training is the bottleneck. The engine, the autodiff, the quantization, the
+serving — all work. What's missing is compute. If you can run it, please do.
 
 ## Sponsor
 
