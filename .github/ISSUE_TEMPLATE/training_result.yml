@@ -1,0 +1,48 @@
+name: Training / distillation result
+description: Share a checkpoint you trained or distilled so we can evaluate and feature it.
+labels: [training]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for contributing compute! Only teachers with a **permissive license** (Apache-2.0 / MIT) are accepted.
+        See [docs/04-aprendizaje-destilacion.md](../blob/main/docs/04-aprendizaje-destilacion.md) and [docs/PROFESORES.md](../blob/main/docs/PROFESORES.md).
+  - type: input
+    id: checkpoint
+    attributes:
+      label: Checkpoint link
+      description: Hugging Face, a GitHub release, or another public download.
+    validations:
+      required: true
+  - type: input
+    id: teacher
+    attributes:
+      label: Teacher model and license
+      placeholder: SmolLM2-360M-Instruct (Apache-2.0)
+    validations:
+      required: true
+  - type: textarea
+    id: config
+    attributes:
+      label: Training config
+      description: Architecture size, steps, prompts/dataset, hyperparameters, exact `fluency distill` / `fluency train` command.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: eval
+    attributes:
+      label: Evaluation
+      description: Output of `fluency eval` / `zig build eval` and any sample generations.
+      render: text
+  - type: input
+    id: hardware
+    attributes:
+      label: Hardware and wall-clock time
+      placeholder: 1x RTX 4090, 14 h
+  - type: input
+    id: commit
+    attributes:
+      label: Fluency commit used
+    validations:
+      required: true

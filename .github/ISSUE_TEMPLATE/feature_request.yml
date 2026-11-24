@@ -1,0 +1,33 @@
+name: Feature request
+description: Propose a new capability or an improvement.
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Fluency is governed by its [Constitution](../blob/main/CONSTITUCION.md): **100% Zig**, no FFI to third-party libraries, subquadratic-first.
+        Proposals that need another language or BLAS/CUDA/llama.cpp cannot be accepted.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / motivation
+      description: What are you trying to do and why is it hard today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: checkboxes
+    id: constitution
+    attributes:
+      label: Constitution
+      options:
+        - label: This proposal can be implemented in pure Zig without FFI.
+          required: true

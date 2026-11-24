@@ -1,0 +1,48 @@
+name: Bug report
+description: Something does not build, crashes, leaks, or gives wrong results.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! Please check that you are using **Zig 0.16.x** (0.17 is not supported yet).
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you run, what did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. zig build
+        2. fluency ...
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Output / logs
+      render: text
+  - type: input
+    id: zig
+    attributes:
+      label: Zig version (`zig version`)
+      placeholder: 0.16.0
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: OS
+      options: [Windows, Linux, macOS, Other]
+    validations:
+      required: true
+  - type: input
+    id: commit
+    attributes:
+      label: Fluency commit
+      placeholder: git rev-parse --short HEAD
