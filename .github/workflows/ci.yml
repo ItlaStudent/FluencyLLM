@@ -1,0 +1,27 @@
+# CI de Fluency (ver docs/09-estructura-tooling.md §7 y CONSTITUCION.md Art. IX).
+# `zig build gate` ejecuta pureza + constitución + calidad (incluye `zig build test`) + presupuestos.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  gate:
+    name: gate + test (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: mlugg/setup-zig@v2
+        with:
+          version: 0.16.0
+      - name: zig build gate
+        run: zig build gate

@@ -4,7 +4,8 @@
 > Status: **alpha / engine-functional, model-undertrained.** Honest, not aspirational.
 
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
-[![Zig](https://img.shields.io/badge/zig-%E2%89%A50.16.0-orange.svg)](https://ziglang.org)
+[![Zig](https://img.shields.io/badge/zig-0.16.x-orange.svg)](https://ziglang.org)
+[![CI](https://github.com/ItlaStudent/FluencyLLM/actions/workflows/ci.yml/badge.svg)](https://github.com/ItlaStudent/FluencyLLM/actions/workflows/ci.yml)
 [![Status](https://img.shields.io/badge/status-alpha-yellow.svg)]()
 
 Fluency is a from-scratch AI engine written entirely in [Zig](https://ziglang.org).
@@ -65,7 +66,7 @@ Fluency is governed by a [written constitution](CONSTITUCION.md) that no
 contributor — human or AI — can amend without a human-approved process. The
 short version:
 
-1. **100% Zig.** ≥ 0.16.0. No `.c/.cpp/.rs/.py/.js/.ts/.go/.cu/.metal`. No
+1. **100% Zig.** Zig **0.16.x** (0.17 is not supported yet). No `.c/.cpp/.rs/.py/.js/.ts/.go/.cu/.metal`. No
    `linkSystemLibrary` / `linkLibC` / `@cImport` against third-party native code.
 2. **Subquadratic by default**, Transformer-compatible. Attention is the
    exception, not the rule.
@@ -79,6 +80,8 @@ short version:
 If you can't satisfy these rules, you can't ship a PR. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Quick start
+
+Requires **Zig 0.16.x** (download from [ziglang.org/download](https://ziglang.org/download/#release-0.16.0)). Zig 0.17 does not build Fluency yet.
 
 ```sh
 # Build
@@ -148,7 +151,7 @@ tools/               Constitutional gates and the constitution hash
 docs/                Architecture, ADRs, training plan, teacher registry
 data/                Prompts (text). Checkpoints are .gitignored.
 models/              GGUF teachers and Fluency checkpoints (gitignored).
-zig-0.16.0/          Vendored toolchain (gitignored).
+zig-0.*/             Vendored toolchain, optional (gitignored).
 ```
 
 ## Community

@@ -1,0 +1,13 @@
+# Saltos de línea fijos en LF en todas las plataformas.
+# Imprescindible: tools/constitution.sha256 se calcula sobre CONSTITUCION.md con LF;
+# sin esto, Git en Windows (core.autocrlf=true) lo convierte a CRLF y el gate falla.
+* text=auto eol=lf
+
+# Binarios
+*.jpg  binary
+*.jpeg binary
+*.png  binary
+*.gif  binary
+*.ico  binary
+*.bin  binary
+*.spv  binary

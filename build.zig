@@ -77,18 +77,19 @@ pub fn build(b: *std.Build) void {
     // === GPU kernels SPIR-V (M1) — REQUIERE REVISIÓN HUMANA (Art. IX.5) ===
     const spv_step = b.step("spv", "Compila kernels GPU a SPIR-V");
     const zig_exe = b.graph.zig_exe;
-    const saxpy_src = b.pathJoin(&.{ b.build_root.path.?, "src", "zgpu", "kernels", "saxpy.zig" });
     const run_saxpy_spv = b.addSystemCommand(&.{
         zig_exe,
         "build-obj",
         "-target", "spirv64-vulkan",
         "-fno-llvm",
         "-OReleaseFast",
-        "-femit-bin=zig-out/saxpy.spv",
-        saxpy_src,
     });
+    // Se emite en la caché y luego se instala en <prefix>/saxpy.spv (zig-out/ por defecto),
+    // así funciona en un clon limpio donde zig-out/ aún no existe.
+    const saxpy_spv = run_saxpy_spv.addPrefixedOutputFileArg("-femit-bin=", "saxpy.spv");
+    run_saxpy_spv.addFileArg(b.path("src/zgpu/kernels/saxpy.zig"));
     run_saxpy_spv.setName("compilar saxpy.spv");
-    spv_step.dependOn(&run_saxpy_spv.step);
+    spv_step.dependOn(&b.addInstallFile(saxpy_spv, "saxpy.spv").step);
 
     // Cableado del grafo de módulos (imports entre módulos).
     zarch.addImport("zkernel", zkernel);

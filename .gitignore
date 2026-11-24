@@ -1,5 +1,5 @@
 # --- Toolchain Zig vendorizado (NO versionar: ~260 MB, trae miles de .h/.c de libc) ---
-/zig-0.16.0/
+/zig-*/
 zig-*.zip
 *.zip
 
@@ -36,3 +36,6 @@ node_modules/
 Thumbs.db
 .DS_Store
 *.swp
+
+# --- Capturas locales (contienen rutas personales) ---
+/Prompt Original.jpg

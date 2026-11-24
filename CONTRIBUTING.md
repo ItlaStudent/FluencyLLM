@@ -5,7 +5,7 @@ please read this — Fluency is a constitutional project with **hard, non-negoti
 
 ## TL;DR
 
-1. **100% Zig (≥ 0.16.0).** No other languages. No FFI to third-party libraries.
+1. **100% Zig (Zig 0.16.x; 0.17 not supported yet).** No other languages. No FFI to third-party libraries.
 2. **Subquadratic priority.** Transformer compatibility is supported, but
    attention is a minority mixer by design.
 3. **Distillation is the only training paradigm.** Respect upstream licenses.
@@ -30,7 +30,7 @@ Before you write a single line:
 ## Development environment
 
 - **OS:** any. Active developer machines are Windows 11 + PowerShell.
-- **Toolchain:** Zig 0.16.0 (pinned in `build.zig.zon`). The repo expects the
+- **Toolchain:** Zig 0.16.x exactly (0.17 has breaking `std.Build` changes and does not build Fluency yet). The repo expects the
   toolchain at `zig-0.16.0/zig-x86_64-windows-0.16.0/zig.exe` if you vendorize
   it locally, but you can use a system `zig` on PATH.
 - **No extra runtimes.** No Node, no Python, no anything else is needed to build
