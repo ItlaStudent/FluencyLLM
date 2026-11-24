@@ -96,11 +96,10 @@ pub const RawTty = struct {
                 const fd = std.Io.File.stdin().handle;
                 self.state.original_termios = std.posix.tcgetattr(fd) catch return error.NotATerminal;
                 var raw = self.state.original_termios;
-                // Constantes termios para Linux (x86_64 / aarch64 genérico).
-                const ECHO: std.posix.tc_lflag_t = 8;
-                const ICANON: std.posix.tc_lflag_t = 2;
-                const ISIG: std.posix.tc_lflag_t = 1;
-                raw.lflag &= ~(ECHO | ICANON | ISIG);
+                // En Zig 0.16 `tc_lflag_t` es un packed struct de flags (Linux y macOS).
+                raw.lflag.ECHO = false;
+                raw.lflag.ICANON = false;
+                raw.lflag.ISIG = false;
                 raw.cc[@intFromEnum(std.posix.V.MIN)] = 0;
                 raw.cc[@intFromEnum(std.posix.V.TIME)] = 0;
                 try std.posix.tcsetattr(fd, .NOW, raw);

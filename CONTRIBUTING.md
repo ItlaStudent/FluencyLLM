@@ -29,7 +29,7 @@ Before you write a single line:
 
 ## Development environment
 
-- **OS:** any. Active developer machines are Windows 11 + PowerShell.
+- **OS:** Windows and Linux (x86_64/aarch64), both checked in CI. GPU (Vulkan) is Windows-only for now; on Linux the engine runs on CPU. macOS does not build yet. Active developer machines are Windows 11 + PowerShell.
 - **Toolchain:** Zig 0.16.x exactly (0.17 has breaking `std.Build` changes and does not build Fluency yet). The repo expects the
   toolchain at `zig-0.16.0/zig-x86_64-windows-0.16.0/zig.exe` if you vendorize
   it locally, but you can use a system `zig` on PATH.
